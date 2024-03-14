@@ -2,6 +2,8 @@
 
 @interface RCT_EXTERN_MODULE(NeoAirplayViewManager, RCTViewManager)
 
-RCT_EXPORT_VIEW_PROPERTY(color, NSString)
+RCT_EXPORT_VIEW_PROPERTY(tintColor, UIColor *)
+RCT_EXPORT_VIEW_PROPERTY(activeTintColor, UIColor *)
+RCT_EXPORT_VIEW_PROPERTY(prioritizesVideoDevices, BOOL)
 
 @end

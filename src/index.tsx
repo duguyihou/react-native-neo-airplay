@@ -1,8 +1,12 @@
+import React from 'react';
 import {
   requireNativeComponent,
   UIManager,
   Platform,
-  type ViewStyle,
+  processColor,
+  type ColorValue,
+  type ProcessedColorValue,
+  type ViewProps,
 } from 'react-native';
 
 const LINKING_ERROR =
@@ -11,16 +15,41 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-type NeoAirplayProps = {
-  color: string;
-  style: ViewStyle;
-};
+interface NeoAirplayProps extends ViewProps {
+  tintColor: number | ColorValue;
+  activeTintColor: number | ColorValue;
+  prioritizesVideoDevices: boolean;
+}
+
+interface NeoAirplayViewProps
+  extends Omit<NeoAirplayProps, 'tintColor' | 'activeTintColor'> {
+  tintColor: ProcessedColorValue | null;
+  activeTintColor: ProcessedColorValue | null;
+}
 
 const ComponentName = 'NeoAirplayView';
 
 export const NeoAirplayView =
   UIManager.getViewManagerConfig(ComponentName) != null
-    ? requireNativeComponent<NeoAirplayProps>(ComponentName)
+    ? requireNativeComponent<Partial<NeoAirplayViewProps>>(ComponentName)
     : () => {
         throw new Error(LINKING_ERROR);
       };
+
+const NeoAirplay = ({
+  tintColor,
+  activeTintColor,
+  prioritizesVideoDevices,
+  ...props
+}: Partial<NeoAirplayProps>) => {
+  return (
+    <NeoAirplayView
+      {...props}
+      tintColor={processColor(tintColor)}
+      activeTintColor={processColor(activeTintColor)}
+      prioritizesVideoDevices={prioritizesVideoDevices}
+    />
+  );
+};
+
+export default NeoAirplay;

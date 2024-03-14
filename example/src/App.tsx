@@ -1,12 +1,17 @@
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { NeoAirplayView } from 'react-native-neo-airplay';
+import NeoAirplay from 'react-native-neo-airplay';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <NeoAirplayView color="#32a852" style={styles.box} />
+      <NeoAirplay
+        style={styles.box}
+        tintColor="red"
+        activeTintColor="green"
+        prioritizesVideoDevices={true}
+      />
     </View>
   );
 }
