@@ -1,38 +1,41 @@
-export type AVAudioSessionPortType =
+export type AudioSessionPortType =
   | 'continuityMicrophone'
   | 'lineIn'
-  | 'builtInMic'
-  | 'headsetMic'
-  | 'lineOut'
-  | 'headphones'
-  | 'bluetoothA2DP'
-  | 'builtInReceiver'
-  | 'builtInSpeaker'
+  | 'BuiltInMic'
+  | 'HeadsetMic'
+  | 'LineIn'
+  | 'AirPlay'
+  | 'BluetoothA2DP'
+  | 'BluetoothLE'
+  | 'BuiltInReceiver'
+  | 'BuiltInSpeaker'
   | 'HDMI'
-  | 'airPlay'
-  | 'bluetoothLE'
-  | 'bluetoothHFP'
-  | 'usbAudio'
-  | 'carAudio'
-  | 'virtual'
-  | 'PCI'
-  | 'fireWire'
-  | 'displayPort'
+  | 'Headphones'
+  | 'LineOut'
   | 'AVB'
-  | 'thunderbolt';
+  | 'BluetoothHFP'
+  | 'DisplayPort'
+  | 'CarAudio'
+  | 'FireWire'
+  | 'PCI'
+  | 'Thunderbolt'
+  | 'UsbAudio'
+  | 'Virtual';
 
-export type AVAudioSessionChannel = {
+export type AudioSessionChannel = {
   channelName: string;
   channelNumber: number;
   owningPortUID: string;
   channelLabel: string;
 };
 
-export type AVAudioSessionRoute = {
+export type AudioSessionRoute = {
   portName: string;
-  portType: AVAudioSessionPortType;
-  channels: AVAudioSessionChannel[];
+  portType: AudioSessionPortType;
+  channels: AudioSessionChannel[];
   uid: string;
   hasHardwareVoiceCallProcessing: boolean;
   isSpatialAudioEnabled: boolean;
 };
+
+export type RoutesStatus = AudioSessionRoute[] | null;

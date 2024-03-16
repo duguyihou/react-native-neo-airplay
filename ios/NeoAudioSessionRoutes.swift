@@ -1,8 +1,8 @@
 import React
 import AVKit
 
-@objc(NeoAirplayModule)
-class NeoAirplayModule: RCTEventEmitter {
+@objc(NeoAudioSessionRoutes)
+class NeoAudioSessionRoutes: RCTEventEmitter {
   private struct Constants {
     static var AVAudioSessionRoutesChanged = "AVAudioSessionRoutesChanged"
     static var portName = "portName"
@@ -43,7 +43,7 @@ class NeoAirplayModule: RCTEventEmitter {
   }
 }
 
-extension NeoAirplayModule {
+extension NeoAudioSessionRoutes {
   @objc func fetchAVAudioSessionRoutes(
     _ resolve: @escaping RCTPromiseResolveBlock,
     reject: @escaping RCTPromiseRejectBlock) {
@@ -51,10 +51,11 @@ extension NeoAirplayModule {
     }
 }
 
-extension NeoAirplayModule {
+extension NeoAudioSessionRoutes {
   override func constantsToExport() -> [AnyHashable : Any]! {
     return [Constants.AVAudioSessionRoutesChanged: Constants.AVAudioSessionRoutesChanged]
   }
+  
   override func supportedEvents() -> [String]! {
     return [Constants.AVAudioSessionRoutesChanged]
   }
@@ -76,7 +77,6 @@ extension NeoAirplayModule {
   @objc private func handleRouteChange(notification: NSNotification) {
     if let userInfo = notification.userInfo {
       let reason = userInfo[AVAudioSessionRouteChangeReasonKey] as? AVAudioSession.RouteChangeReason
-      print("🐵 --- reason \(reason)")
 
       sendEvent(withName: Constants.AVAudioSessionRoutesChanged, body: AVAudioSessionRoutes)
     }

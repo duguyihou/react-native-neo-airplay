@@ -1,5 +1,7 @@
 import NeoAirplay from './NeoAirplay';
 
-export { useAVAudioSessionRoutes } from './useAVAudioSessionRoutes';
+export { useNeoAudioSessionRoutes } from './useNeoAudioSessionRoutes';
+export { useNeoAirplayRoutes } from './useNeoAirplayRoutes';
+export { useNeoAirplayConnectivity } from './useNeoAirplayConnectivity';
 
 export default NeoAirplay;

@@ -1,11 +1,16 @@
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import NeoAirplay from 'react-native-neo-airplay';
-import { useAVAudioSessionRoutes } from '../../src/useAVAudioSessionRoutes';
+import NeoAirplay, {
+  useNeoAudioSessionRoutes,
+  useNeoAirplayConnectivity,
+} from 'react-native-neo-airplay';
 
 export default function App() {
-  useAVAudioSessionRoutes();
+  const routes = useNeoAudioSessionRoutes();
+  console.log(`🐵 ------ routes`, routes);
+  const isAirplayConnected = useNeoAirplayConnectivity();
+  console.log(`🐵 ------  isAirplayConnected`, isAirplayConnected);
   return (
     <View style={styles.container}>
       <NeoAirplay
