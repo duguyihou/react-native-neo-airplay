@@ -3263,6 +3263,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native-video@npm:^5.0.20":
+  version: 5.0.20
+  resolution: "@types/react-native-video@npm:5.0.20"
+  dependencies:
+    "@types/react": "*"
+    react-native: "*"
+  checksum: 1fea9c3e9ac9161634179a973782e8c161e27a357e8fec84d24dd1af5b9de6d11c7c9205aafbcbf746694e45c36ae442b8c768b3ca7ca95e0d9c777f84e3112b
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:^18.2.44":
   version: 18.2.66
   resolution: "@types/react@npm:18.2.66"
@@ -10860,6 +10870,7 @@ __metadata:
     "@react-native/babel-preset": 0.73.21
     "@react-native/metro-config": 0.73.5
     "@react-native/typescript-config": 0.73.1
+    "@types/react-native-video": ^5.0.20
     babel-plugin-module-resolver: ^5.0.0
     react: 18.2.0
     react-native: 0.73.6
@@ -10908,7 +10919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.73.6":
+"react-native@npm:*, react-native@npm:0.73.6":
   version: 0.73.6
   resolution: "react-native@npm:0.73.6"
   dependencies:
