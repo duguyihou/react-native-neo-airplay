@@ -11,11 +11,16 @@ npm install react-native-neo-airplay
 ## Usage
 
 ```js
-import { NeoAirplayView } from "react-native-neo-airplay";
+import NeoAirplay from 'react-native-neo-airplay';
 
 // ...
 
-<NeoAirplayView color="tomato" />
+<NeoAirplay
+  style={styles.box}
+  tintColor="red"
+  activeTintColor="green"
+  prioritizesVideoDevices={true}
+/>
 ```
 
 ## Contributing
@@ -25,7 +30,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
